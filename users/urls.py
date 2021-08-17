@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import (logoutUser, profiles, registerUser, userProfile,
-                    loginUser, userAccount, editAccount, createSkill, updateSkill, deleteSkill)
+                    loginUser, userAccount, editAccount, createSkill,
+                    updateSkill, deleteSkill, inbox, viewMessage, createMessage)
+
 
 urlpatterns = [
     path('login/',  loginUser, name="login"),
@@ -16,4 +18,8 @@ urlpatterns = [
     path('create-skill/', createSkill, name="create-skill"),
     path('update-skill/<str:pk>/', updateSkill, name="update-skill"),
     path('delete-skill/<str:pk>/', deleteSkill, name="delete-skill"),
+
+    path('inbox/', inbox, name="inbox"),
+    path('message/<str:pk>/', viewMessage, name="message"),
+    path('create-message/<str:pk>/', createMessage, name="create-message"),
 ]
