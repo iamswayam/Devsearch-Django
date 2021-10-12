@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/abc
+    ports:
+      - "8000:8000"    
+    depends_on:
+      - pgdb
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    environment:
+      - POSTGRES_DB=devsearch
+      - POSTGRES_USER=swayam
+      - POSTGRES_PASSWORD=swayam04
+      
