@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-(-+8#rhgq1g2649voxp(_(awb-x0okf3)itt=dgltluwkna^@2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 'devsearch-env.eba-tm4ukcqn.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -44,7 +43,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 
     'rest_framework',
-    # 'corsheaders',
+    # 'storages',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -86,7 +86,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,10 +130,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'devsearch',
-        'USER': 'postgres',
-        'PASSWORD': 'swayam',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': 'swayam',
+        'PASSWORD': 'swayam04',
+        # 'HOST': 'database-1.c2intpu7sehl.us-west-2.rds.amazonaws.com',
+        'HOST': 'pgdb',
+        'PORT': 5432,
     }
 }
 
@@ -204,3 +205,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'antirapeassociation@gmail.com'
 EMAIL_HOST_PASSWORD = '24488662'
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = False
+
+# AWS_ACCESS_KEY_ID = 'AKIAUMX5MHMLUSIIIMXE'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'devsearch-s3bucket'
